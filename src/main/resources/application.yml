@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sample_db
+    username: test_user
+    password: test_user
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 9001
+
+---
+
+spring:
+  profiles: docker
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://chat-mysql-server:3306/sample_db
+    username: test_user
+    password: test_user
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+server:
+  port: 9000
+
+
